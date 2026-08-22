@@ -16,6 +16,54 @@
   <title>Braids by Athalia | Maryland Braider</title>
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    .hero-phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border: 2px solid #d4af37;
+      background: linear-gradient(135deg, #071b4d, #174ea6);
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .hero-phone:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-phone-number {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero-buttons {
+        display: grid;
+        width: 100%;
+        gap: 12px;
+      }
+
+      .hero-buttons a {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .hero-phone {
+        min-height: 58px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -38,7 +86,7 @@
   </nav>
 
   <main>
-    <!-- VIDEO AT THE TOP OF THE WEBSITE -->
+    <!-- VIDEO HERO -->
     <section class="video-hero" id="top">
       <video
         class="hero-video"
@@ -69,6 +117,17 @@
         </p>
 
         <div class="hero-buttons">
+          <a
+            class="hero-phone"
+            href="tel:+12406600636"
+            aria-label="Call Braids by Athalia at 240-660-0636"
+          >
+            <span aria-hidden="true">☎</span>
+            <span class="hero-phone-number">
+              +1 (240) 660-0636
+            </span>
+          </a>
+
           <a class="primary-button" href="#book">
             Book your appointment
           </a>
@@ -110,7 +169,9 @@
       <div class="service-cards">
         <article class="service-card">
           <span class="service-number">01</span>
+
           <h3>Protective braids</h3>
+
           <p>
             Beautiful protective styles created to help you feel
             confident while caring for your natural hair.
@@ -119,7 +180,9 @@
 
         <article class="service-card featured-card">
           <span class="service-number">02</span>
+
           <h3>Boho finish</h3>
+
           <p>
             Add soft, flowing curls for an elegant Boho look with
             movement and personality.
@@ -128,7 +191,9 @@
 
         <article class="service-card">
           <span class="service-number">03</span>
+
           <h3>Different lengths</h3>
+
           <p>
             Select Midback, Waist, Top Butt, Mid Butt or
             Under Butt length.
@@ -146,7 +211,7 @@
       </div>
     </section>
 
-    <!-- PHOTO GALLERY -->
+    <!-- GALLERY -->
     <section class="gallery-section" id="gallery">
       <div class="section-title light-title">
         <p class="eyebrow">OUR WORK</p>
@@ -266,6 +331,7 @@
         <ol>
           <li>
             <span class="step-number">1</span>
+
             <div>
               <b>Choose your braids</b>
               <span>Select the size, length and finish.</span>
@@ -274,6 +340,7 @@
 
           <li>
             <span class="step-number">2</span>
+
             <div>
               <b>Choose a date</b>
               <span>Select your preferred appointment time.</span>
@@ -282,14 +349,21 @@
 
           <li>
             <span class="step-number">3</span>
+
             <div>
               <b>Receive confirmation</b>
-              <span>
-                Check your email for booking updates.
-              </span>
+              <span>Check your email for booking updates.</span>
             </div>
           </li>
         </ol>
+
+        <a
+          class="hero-phone"
+          href="tel:+12406600636"
+          aria-label="Call Braids by Athalia"
+        >
+          ☎ Call +1 (240) 660-0636
+        </a>
       </div>
 
       <form id="booking-form">
@@ -300,6 +374,7 @@
 
         <label>
           Full name
+
           <input
             name="name"
             required
@@ -310,6 +385,7 @@
 
         <label>
           Phone number
+
           <input
             name="phone"
             required
@@ -321,6 +397,7 @@
 
         <label>
           Email address
+
           <input
             name="email"
             required
@@ -332,6 +409,7 @@
 
         <label>
           Braid size
+
           <select name="braidSize" required>
             <option value="">Select size</option>
             <option>Jumbo</option>
@@ -344,6 +422,7 @@
 
         <label>
           Length
+
           <select name="braidLength" required>
             <option value="">Select length</option>
             <option>Midback</option>
@@ -356,6 +435,7 @@
 
         <label>
           Finish
+
           <select name="finish" required>
             <option>Standard</option>
             <option>Boho</option>
@@ -364,16 +444,27 @@
 
         <label>
           Preferred date
-          <input name="preferredDate" type="date" required />
+
+          <input
+            name="preferredDate"
+            type="date"
+            required
+          />
         </label>
 
         <label>
           Preferred time
-          <input name="preferredTime" type="time" required />
+
+          <input
+            name="preferredTime"
+            type="time"
+            required
+          />
         </label>
 
         <label class="full">
           Notes
+
           <textarea
             name="notes"
             maxlength="1000"
@@ -407,6 +498,10 @@
     <p>
       Beautiful protective styles created with care in Maryland.
     </p>
+
+    <a class="hero-phone" href="tel:+12406600636">
+      ☎ +1 (240) 660-0636
+    </a>
 
     <a href="/owner">Owner dashboard</a>
   </footer>
