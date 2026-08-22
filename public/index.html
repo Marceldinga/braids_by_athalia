@@ -13,7 +13,7 @@
 
   <title>Braids by Athalia | Maryland Braider</title>
 
-  <link rel="icon" type="image/jpeg" href="/athalia-logo.jpeg">
+  <link rel="icon" type="image/jpeg" href="/athalia-logo.jpeg.jpeg">
   <link rel="stylesheet" href="/styles.css">
 
   <style>
@@ -65,20 +65,6 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-    }
-
-    .hero-logo {
-      width: clamp(110px, 16vw, 165px);
-      height: auto;
-      margin-bottom: 24px;
-      padding: 5px;
-      object-fit: contain;
-      border: 3px solid var(--athalia-gold);
-      border-radius: 24px;
-      background: #000;
-      box-shadow:
-        0 18px 45px rgba(7, 31, 92, 0.27),
-        0 0 0 7px rgba(214, 166, 43, 0.1);
     }
 
     .hero-phone {
@@ -260,6 +246,75 @@
       color: var(--athalia-gold);
     }
 
+    /* Shiny blue-and-gold finish */
+    nav {
+      background: linear-gradient(115deg, #020d2b, #073884, #1765c1, #061a4f);
+      background-size: 260% 260%;
+      animation: blueShine 9s ease infinite;
+    }
+
+    .site-logo,
+    .footer-logo {
+      box-shadow:
+        0 0 0 3px rgba(255, 221, 112, 0.18),
+        0 0 22px rgba(242, 190, 48, 0.7),
+        0 12px 34px rgba(0, 35, 105, 0.55);
+    }
+
+    .video-hero h1 em,
+    .social-section h2 {
+      background: linear-gradient(100deg, #b87910, #fff0a4, #e6ae25, #fff6be, #b87910);
+      background-size: 260% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: goldText 5s linear infinite;
+      text-shadow: 0 0 28px rgba(240, 190, 54, 0.2);
+    }
+
+    .button,
+    .nav-book,
+    .social-icon {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(110deg, #a86f08, #ffd85d, #fff0a0, #d99b13, #a86f08);
+      background-size: 250% 100%;
+      animation: goldButton 4.5s linear infinite;
+      box-shadow:
+        0 0 22px rgba(230, 177, 38, 0.45),
+        0 12px 28px rgba(5, 27, 77, 0.3);
+    }
+
+    .hero-phone,
+    .hero-prices {
+      box-shadow:
+        0 0 0 1px rgba(255, 219, 100, 0.5),
+        0 0 24px rgba(24, 91, 196, 0.48),
+        0 14px 30px rgba(0, 20, 72, 0.42);
+    }
+
+    .social-section {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 215, 89, 0.28), transparent 27%),
+        radial-gradient(circle at 85% 75%, rgba(40, 119, 255, 0.4), transparent 35%),
+        linear-gradient(125deg, #020b28, #072b72, #1259b5, #061746);
+      background-size: 170% 170%;
+      animation: blueShine 12s ease infinite;
+    }
+
+    @keyframes blueShine {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes goldText {
+      to { background-position: 260% center; }
+    }
+
+    @keyframes goldButton {
+      to { background-position: 250% center; }
+    }
+
     @media (max-width: 800px) {
       .site-logo {
         width: 48px;
@@ -317,7 +372,7 @@
     <a class="brand" href="#top">
       <img
         class="site-logo"
-        src="/athalia-logo.jpeg"
+        src="/athalia-logo.jpeg.jpeg"
         alt="Braids by Athalia logo"
       >
 
@@ -351,12 +406,6 @@
       <div class="hero-overlay"></div>
 
       <div class="video-hero-content">
-        <img
-          class="hero-logo"
-          src="/athalia-logo.jpeg"
-          alt="Athalia 5 braiding logo"
-        >
-
         <p class="eyebrow">PROTECTIVE STYLES · MARYLAND</p>
 
         <h1>
@@ -700,7 +749,7 @@
       <div class="footer-brand">
         <img
           class="footer-logo"
-          src="/athalia-logo.jpeg"
+          src="/athalia-logo.jpeg.jpeg"
           alt="Braids by Athalia logo"
         >
 
