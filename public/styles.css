@@ -235,6 +235,7 @@ a {
 
 .primary-button,
 .secondary-button,
+.hero-phone,
 .gallery-book-button {
   display: inline-flex;
   min-height: 58px;
@@ -254,6 +255,37 @@ a {
     transform 0.2s ease,
     box-shadow 0.2s ease,
     background-color 0.2s ease;
+}
+
+.hero-phone {
+  display: inline-flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 24px;
+  color: var(--white);
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy),
+      var(--bright-blue)
+    );
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  box-shadow: 0 14px 35px rgba(1, 18, 48, 0.4);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.hero-phone-number {
+  white-space: nowrap;
 }
 
 .primary-button {
@@ -276,8 +308,28 @@ a {
 
 .primary-button:hover,
 .secondary-button:hover,
+.hero-phone:hover,
 .gallery-book-button:hover {
   transform: translateY(-3px);
+}
+
+.hero-phone:hover {
+  color: var(--navy);
+  background:
+    linear-gradient(
+      135deg,
+      var(--light-gold),
+      var(--gold)
+    );
+  box-shadow: 0 18px 40px rgba(213, 166, 46, 0.35);
+}
+
+.booking-information > .hero-phone {
+  margin-top: 28px;
+}
+
+footer > .hero-phone {
+  color: var(--white);
 }
 
 .hero-features {
@@ -801,7 +853,8 @@ footer > a {
   }
 
   .primary-button,
-  .secondary-button {
+  .secondary-button,
+  .hero-phone {
     width: 100%;
   }
 
