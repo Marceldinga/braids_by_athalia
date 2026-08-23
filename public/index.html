@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Braids by Athalia — professional knotless, boho, and protective braiding styles in Maryland."
+    content="Braids by Athalia â€” professional knotless, boho, and protective braiding styles in Maryland."
   >
 
   <meta name="theme-color" content="#071f5c">
@@ -251,6 +251,19 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
+    }
+
+    .updated-price-section-title {
+      grid-column: 1 / -1;
+      margin: 8px 0 -8px;
+      color: var(--athalia-blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+    }
+
+    .updated-price-section-title:not(:first-child) {
+      margin-top: 26px;
     }
 
     .updated-price-card {
@@ -558,7 +571,7 @@
       <div class="hero-overlay"></div>
 
       <div class="video-hero-content">
-        <p class="eyebrow">PROTECTIVE STYLES · MARYLAND</p>
+        <p class="eyebrow">PROTECTIVE STYLES Â· MARYLAND</p>
 
         <h1>
           Beautiful braids.<br>
@@ -573,11 +586,11 @@
 
         <div>
           <a class="hero-phone" href="tel:+12406600636">
-            ☎ +1 (240) 660-0636
+            â˜Ž +1 (240) 660-0636
           </a>
 
           <a class="button" href="#book">
-            Book your appointment →
+            Book your appointment â†’
           </a>
 
           <a class="hero-prices" href="#prices">
@@ -903,7 +916,7 @@
         </label>
 
         <button class="button full" type="submit">
-          Send booking request →
+          Send booking request â†’
         </button>
 
         <p
@@ -988,10 +1001,11 @@
 
       const groups = [
         {
+          section: "Senegalese Twists",
           title: "Medium",
           rows: [
-            ["Midback", "$170", "—"],
-            ["Waist Length", "$170", "—"],
+            ["Midback", "$170", "â€”"],
+            ["Waist Length", "$170", "â€”"],
             ["Top Butt", "$200", "$340"],
             ["Under Butt", "$240", "$340"]
           ]
@@ -1002,33 +1016,43 @@
             ["Midback", "$200", "$260"],
             ["Waist Length", "$240", "$300"],
             ["Top Butt", "$280", "$380"],
-            ["Mid Butt", "$300", "—"],
-            ["Under Butt", "$320", "—"]
+            ["Mid Butt", "$300", "â€”"],
+            ["Under Butt", "$320", "â€”"]
           ]
         },
         {
           title: "Small",
           rows: [
-            ["Midback", "$240", "—"],
-            ["Waist Length", "$280", "—"],
-            ["Top Butt", "$320", "—"],
-            ["Mid Butt", "$340", "—"],
-            ["Under Butt", "$360", "—"]
+            ["Midback", "$240", "â€”"],
+            ["Waist Length", "$280", "â€”"],
+            ["Top Butt", "$320", "â€”"],
+            ["Mid Butt", "$340", "â€”"],
+            ["Under Butt", "$360", "â€”"]
           ]
         },
         {
+          section: "Other Styles",
           title: "Spring Twists",
           wide: true,
           rows: [
-            ["Medium", "$180", "—"],
-            ["Small-Medium", "$200", "—"],
-            ["Small", "$240", "—"]
+            ["Medium", "$180", "â€”"],
+            ["Small-Medium", "$200", "â€”"],
+            ["Small", "$240", "â€”"]
           ]
         }
       ];
 
       priceGrid.className = "updated-price-grid";
-      priceGrid.innerHTML = groups.map((group) => `
+      let currentSection = "";
+      priceGrid.innerHTML = groups.map((group) => {
+        const sectionHeading = group.section && group.section !== currentSection
+          ? `<h3 class="updated-price-section-title">${group.section}</h3>`
+          : "";
+
+        if (group.section) currentSection = group.section;
+
+        return `
+        ${sectionHeading}
         <article class="updated-price-card${group.wide ? " updated-price-card-wide" : ""}">
           <h3>${group.title}</h3>
           <table class="updated-price-table">
@@ -1050,7 +1074,8 @@
             </tbody>
           </table>
         </article>
-      `).join("");
+      `;
+      }).join("");
     })();
   </script>
 </body>
