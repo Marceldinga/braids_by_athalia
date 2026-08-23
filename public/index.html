@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Braids by Athalia — professional knotless, boho, and protective braiding styles in Maryland."
+    content="Braids by Athalia â€” professional knotless, boho, and protective braiding styles in Maryland."
   >
 
   <meta name="theme-color" content="#071f5c">
@@ -246,6 +246,99 @@
       color: var(--athalia-gold);
     }
 
+    /* Requested price-guide update */
+    .updated-price-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .updated-price-card {
+      padding: 34px;
+      border: 1px solid #d9e1ef;
+      border-top: 9px solid var(--athalia-gold);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 16px 38px rgba(7, 31, 92, 0.1);
+    }
+
+    .updated-price-card h3 {
+      margin: 0 0 24px;
+      color: var(--athalia-blue-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .updated-price-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .updated-price-table th,
+    .updated-price-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #e8edf5;
+    }
+
+    .updated-price-table th:first-child,
+    .updated-price-table td:first-child {
+      width: 46%;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .updated-price-table th:nth-child(2),
+    .updated-price-table td:nth-child(2),
+    .updated-price-table th:nth-child(3),
+    .updated-price-table td:nth-child(3) {
+      width: 27%;
+      text-align: center;
+    }
+
+    .updated-price-table th {
+      color: var(--athalia-blue-light);
+      font-size: 0.95rem;
+    }
+
+    .updated-price-table td:not(:first-child) {
+      color: var(--athalia-blue);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .updated-price-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .price-note,
+    .business-address {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .price-note {
+      border: 2px solid var(--athalia-gold);
+      background: #fffaf0;
+    }
+
+    .business-address {
+      background: var(--athalia-blue);
+      color: #fff;
+    }
+
+    .business-address h3 {
+      margin: 0 0 8px;
+      color: var(--athalia-gold-light);
+    }
+
+    .business-address address {
+      font-style: normal;
+    }
+
     /* Shiny blue-and-gold finish */
     nav {
       background: linear-gradient(115deg, #020d2b, #073884, #1765c1, #061a4f);
@@ -338,6 +431,14 @@
         bottom: 14px;
         padding: 13px 16px;
       }
+
+      .updated-price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .updated-price-card-wide {
+        grid-column: auto;
+      }
     }
 
     @media (max-width: 480px) {
@@ -362,6 +463,16 @@
         height: 58px;
         justify-content: center;
         padding: 0;
+      }
+
+      .updated-price-card {
+        padding: 26px 16px;
+      }
+
+      .updated-price-table th,
+      .updated-price-table td {
+        padding: 11px 4px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -406,7 +517,7 @@
       <div class="hero-overlay"></div>
 
       <div class="video-hero-content">
-        <p class="eyebrow">PROTECTIVE STYLES · MARYLAND</p>
+        <p class="eyebrow">PROTECTIVE STYLES Â· MARYLAND</p>
 
         <h1>
           Beautiful braids.<br>
@@ -421,11 +532,11 @@
 
         <div>
           <a class="hero-phone" href="tel:+12406600636">
-            ☎ +1 (240) 660-0636
+            â˜Ž +1 (240) 660-0636
           </a>
 
           <a class="button" href="#book">
-            Book your appointment →
+            Book your appointment â†’
           </a>
 
           <a class="hero-prices" href="#prices">
@@ -561,6 +672,16 @@
       </div>
 
       <div id="price-grid" class="price-grid"></div>
+
+      <div class="price-note">
+        <strong>Kids' prices are available too.</strong>
+        Please contact Athalia before booking for kids' pricing.
+      </div>
+
+      <div class="business-address">
+        <h3>Appointment Location</h3>
+        <address>7375 Executive Place, Suite 400 E30, Lanham, MD</address>
+      </div>
     </section>
 
     <section class="social-section" id="social">
@@ -681,6 +802,15 @@
         </label>
 
         <label>
+          Braid style
+          <select name="braidStyle" required>
+            <option value="">Select style</option>
+            <option>Senegalese Twists</option>
+            <option>Spring Twists</option>
+          </select>
+        </label>
+
+        <label>
           Braid size
           <select name="braidSize" required>
             <option value="">Select size</option>
@@ -732,7 +862,7 @@
         </label>
 
         <button class="button full" type="submit">
-          Send booking request →
+          Send booking request â†’
         </button>
 
         <p
@@ -809,5 +939,78 @@
   </a>
 
   <script src="/app.js"></script>
+
+  <script>
+    (() => {
+      const priceGrid = document.getElementById("price-grid");
+      if (!priceGrid) return;
+
+      const groups = [
+        {
+          title: "Medium",
+          rows: [
+            ["Midback", "$170", "â€”"],
+            ["Waist Length", "$170", "â€”"],
+            ["Top Butt", "$200", "$340"],
+            ["Under Butt", "$240", "$340"]
+          ]
+        },
+        {
+          title: "Small-Medium",
+          rows: [
+            ["Midback", "$200", "$260"],
+            ["Waist Length", "$240", "$300"],
+            ["Top Butt", "$280", "$380"],
+            ["Mid Butt", "$300", "â€”"],
+            ["Under Butt", "$320", "â€”"]
+          ]
+        },
+        {
+          title: "Small",
+          rows: [
+            ["Midback", "$240", "â€”"],
+            ["Waist Length", "$280", "â€”"],
+            ["Top Butt", "$320", "â€”"],
+            ["Mid Butt", "$340", "â€”"],
+            ["Under Butt", "$360", "â€”"]
+          ]
+        },
+        {
+          title: "Spring Twists",
+          wide: true,
+          rows: [
+            ["Medium", "$180", "â€”"],
+            ["Small-Medium", "$200", "â€”"],
+            ["Small", "$240", "â€”"]
+          ]
+        }
+      ];
+
+      priceGrid.className = "updated-price-grid";
+      priceGrid.innerHTML = groups.map((group) => `
+        <article class="updated-price-card${group.wide ? " updated-price-card-wide" : ""}">
+          <h3>${group.title}</h3>
+          <table class="updated-price-table">
+            <thead>
+              <tr>
+                <th>${group.wide ? "Size" : "Length"}</th>
+                <th>Standard</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${group.rows.map((row) => `
+                <tr>
+                  <td>${row[0]}</td>
+                  <td>${row[1]}</td>
+                  <td>${row[2]}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </article>
+      `).join("");
+    })();
+  </script>
 </body>
 </html>
