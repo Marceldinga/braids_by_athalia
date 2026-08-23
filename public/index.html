@@ -249,7 +249,7 @@
     /* Requested price-guide update */
     .updated-price-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
     }
 
@@ -350,7 +350,7 @@
     }
 
     .updated-price-card-wide {
-      grid-column: 1 / -1;
+      grid-column: auto;
     }
 
     .price-note,
@@ -610,7 +610,7 @@
 
       <p>
         Choose from Jumbo, Large, Medium, Small-Medium, or Small braids.
-        Standard and Boho finishes are available according to the price
+        Regular and Boho finishes are available according to the price
         guide.
       </p>
 
@@ -720,7 +720,7 @@
         </div>
 
         <p>
-          Standard prices and available Boho prices are shown below.
+          Regular prices and available Boho prices are shown below.
           Contact Athalia about special requests.
         </p>
       </div>
@@ -728,8 +728,8 @@
       <div id="price-grid" class="price-grid"></div>
 
       <div class="price-note">
-        <strong>Kids' prices are available too.</strong>
-        Please contact Athalia before booking for kids' pricing.
+        <strong>Friends' and kids' prices are available too.</strong>
+        Please contact Athalia before booking for special pricing.
       </div>
 
       <div class="business-address">
@@ -891,7 +891,7 @@
         <label>
           Finish
           <select name="finish" required>
-            <option>Standard</option>
+            <option>Regular</option>
             <option>Boho</option>
           </select>
         </label>
@@ -1059,7 +1059,7 @@
             <thead>
               <tr>
                 <th>${group.wide ? "Size" : "Length"}</th>
-                <th>Standard</th>
+                <th>Regular</th>
                 <th>Boho</th>
               </tr>
             </thead>
