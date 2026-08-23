@@ -995,7 +995,7 @@
   <script src="/app.js"></script>
 
   <script>
-    (() => {
+    document.addEventListener("DOMContentLoaded", () => {
       const priceGrid = document.getElementById("price-grid");
       if (!priceGrid) return;
 
@@ -1076,7 +1076,7 @@
         </article>
       `;
       }).join("");
-    })();
+    });
   </script>
 </body>
 </html>
