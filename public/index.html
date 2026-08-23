@@ -278,7 +278,7 @@
 
     .updated-price-table th,
     .updated-price-table td {
-      padding: 12px 8px;
+      padding: 14px 12px;
       border-bottom: 1px solid #e8edf5;
     }
 
@@ -295,6 +295,34 @@
     .updated-price-table td:nth-child(3) {
       width: 27%;
       text-align: center;
+    }
+
+    .updated-price-table th:nth-child(2),
+    .updated-price-table td:nth-child(2) {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .updated-price-table th:nth-child(3),
+    .updated-price-table td:nth-child(3) {
+      padding-left: 22px;
+      text-align: right;
+    }
+
+    #price-grid :is(.price-head, .price-header, .price-row) {
+      display: grid;
+      grid-template-columns: minmax(145px, 1.35fr) minmax(90px, 0.75fr) minmax(90px, 0.75fr);
+      align-items: center;
+      column-gap: 24px;
+      width: 100%;
+    }
+
+    #price-grid :is(.price-head, .price-header, .price-row) > :nth-child(2) {
+      text-align: center;
+    }
+
+    #price-grid :is(.price-head, .price-header, .price-row) > :nth-child(3) {
+      text-align: right;
     }
 
     .updated-price-table th {
@@ -473,6 +501,19 @@
       .updated-price-table td {
         padding: 11px 4px;
         font-size: 0.9rem;
+      }
+
+      .updated-price-table th:nth-child(2),
+      .updated-price-table td:nth-child(2),
+      .updated-price-table th:nth-child(3),
+      .updated-price-table td:nth-child(3) {
+        padding-left: 9px;
+        padding-right: 4px;
+      }
+
+      #price-grid :is(.price-head, .price-header, .price-row) {
+        grid-template-columns: minmax(110px, 1.35fr) minmax(72px, 0.75fr) minmax(72px, 0.75fr);
+        column-gap: 10px;
       }
     }
   </style>
