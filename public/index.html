@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta
     name="description"
-    content="Braids by Athalia — professional knotless, boho, and protective braiding styles in Maryland."
+    content="Braids by Athalia — professional knotless, Senegalese, boho, and protective braiding styles in Maryland."
   >
 
   <meta name="theme-color" content="#071f5c">
@@ -18,16 +18,20 @@
 
   <style>
     :root {
-      --athalia-blue: #071f5c;
-      --athalia-blue-light: #123c9b;
-      --athalia-gold: #d6a62b;
-      --athalia-gold-light: #f2d675;
-      --athalia-black: #080808;
-      --athalia-white: #ffffff;
+      --blue: #071f5c;
+      --blue-light: #123c9b;
+      --gold: #d6a62b;
+      --gold-light: #f2d675;
+      --white: #ffffff;
+      --background: #f4f7fc;
     }
 
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
     }
 
     .brand {
@@ -42,10 +46,12 @@
       width: 58px;
       height: 58px;
       object-fit: contain;
-      border: 2px solid var(--athalia-gold);
+      border: 2px solid var(--gold);
       border-radius: 50%;
       background: #000;
-      box-shadow: 0 5px 18px rgba(7, 31, 92, 0.22);
+      box-shadow:
+        0 0 22px rgba(242, 190, 48, 0.7),
+        0 12px 34px rgba(0, 35, 105, 0.55);
     }
 
     .brand-text {
@@ -60,11 +66,29 @@
 
     .brand-text small {
       margin-top: 5px;
-      color: #876b27;
+      color: var(--gold);
       font-size: 0.69rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    nav {
+      background: linear-gradient(
+        115deg,
+        #020d2b,
+        #073884,
+        #1765c1,
+        #061a4f
+      );
+      background-size: 260% 260%;
+      animation: blue-shine 9s ease infinite;
+    }
+
+    .nav-prices {
+      display: inline-flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
     .hero-phone {
@@ -73,36 +97,168 @@
       gap: 10px;
       margin: 14px 10px 0 0;
       padding: 14px 20px;
-      border: 2px solid var(--athalia-gold);
+      border: 2px solid var(--gold);
       border-radius: 8px;
-      background: var(--athalia-blue);
+      background: var(--blue);
       color: #fff;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(7, 31, 92, 0.22);
+      box-shadow:
+        0 0 24px rgba(24, 91, 196, 0.48),
+        0 14px 30px rgba(0, 20, 72, 0.42);
     }
 
     .hero-phone:hover {
-      background: var(--athalia-gold);
-      color: var(--athalia-blue);
+      background: var(--gold);
+      color: var(--blue);
+    }
+
+    .button,
+    .nav-book,
+    .social-icon {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(
+        110deg,
+        #a86f08,
+        #ffd85d,
+        #fff0a0,
+        #d99b13,
+        #a86f08
+      );
+      background-size: 250% 100%;
+      animation: gold-button 4.5s linear infinite;
+      box-shadow:
+        0 0 22px rgba(230, 177, 38, 0.45),
+        0 12px 28px rgba(5, 27, 77, 0.3);
+    }
+
+    .pricing-section {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      padding: 80px 7%;
+      background: var(--background);
+    }
+
+    .pricing-section.knotless {
+      background: #eaf0fa;
+    }
+
+    .pricing-heading {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .pricing-heading p {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    .pricing-heading h2 {
+      margin: 0;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    .pricing-heading .pricing-description {
+      max-width: 700px;
+      margin: 16px auto 0;
+      color: #42506a;
+      font-weight: 500;
+      letter-spacing: normal;
+      line-height: 1.7;
+    }
+
+    .pricing-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .pricing-card {
+      display: block !important;
+      visibility: visible !important;
+      padding: 30px;
+      border: 1px solid #d9e1ef;
+      border-top: 8px solid var(--gold);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: 0 16px 38px rgba(7, 31, 92, 0.12);
+    }
+
+    .pricing-card h3 {
+      margin: 0 0 22px;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+    }
+
+    .pricing-card table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .pricing-card th,
+    .pricing-card td {
+      padding: 11px 5px;
+      border-bottom: 1px solid #e8edf5;
+      text-align: right;
+    }
+
+    .pricing-card th:first-child,
+    .pricing-card td:first-child {
+      text-align: left;
+    }
+
+    .pricing-card th {
+      color: var(--blue-light);
+      font-size: 0.9rem;
+    }
+
+    .pricing-card td:not(:first-child) {
+      color: var(--blue);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pricing-note {
+      margin: 28px 0 0;
+      padding: 22px;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      background: #fffaf0;
+      color: var(--blue);
+      font-weight: 800;
+      text-align: center;
     }
 
     .social-section {
       padding: 80px 7%;
       background:
         radial-gradient(
-          circle at top left,
-          rgba(214, 166, 43, 0.22),
+          circle at 15% 10%,
+          rgba(255, 215, 89, 0.28),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 85% 75%,
+          rgba(40, 119, 255, 0.4),
           transparent 35%
         ),
-        linear-gradient(135deg, #031342, #092b7a 55%, #061b51);
+        linear-gradient(125deg, #020b28, #072b72, #1259b5, #061746);
+      background-size: 170% 170%;
+      animation: blue-shine 12s ease infinite;
       color: white;
       text-align: center;
     }
 
     .social-section .eyebrow {
-      color: var(--athalia-gold-light);
+      color: var(--gold-light);
     }
 
     .social-section h2 {
@@ -146,7 +302,7 @@
 
     .social-link:hover {
       transform: translateY(-4px);
-      border-color: var(--athalia-gold);
+      border-color: var(--gold);
       background: rgba(255, 255, 255, 0.16);
     }
 
@@ -157,8 +313,7 @@
       height: 48px;
       place-items: center;
       border-radius: 50%;
-      background: var(--athalia-gold);
-      color: var(--athalia-blue);
+      color: var(--blue);
       font-size: 0.78rem;
       font-weight: 900;
     }
@@ -207,7 +362,7 @@
       width: 70px;
       height: 70px;
       object-fit: contain;
-      border: 2px solid var(--athalia-gold);
+      border: 2px solid var(--gold);
       border-radius: 50%;
       background: #000;
     }
@@ -226,78 +381,32 @@
     }
 
     .footer-socials a:hover {
-      color: var(--athalia-gold);
+      color: var(--gold);
     }
 
-    /* Shiny blue-and-gold finish */
-    nav {
-      background: linear-gradient(115deg, #020d2b, #073884, #1765c1, #061a4f);
-      background-size: 260% 260%;
-      animation: blueShine 9s ease infinite;
+    @keyframes blue-shine {
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
     }
 
-    .site-logo,
-    .footer-logo {
-      box-shadow:
-        0 0 0 3px rgba(255, 221, 112, 0.18),
-        0 0 22px rgba(242, 190, 48, 0.7),
-        0 12px 34px rgba(0, 35, 105, 0.55);
+    @keyframes gold-button {
+      to {
+        background-position: 250% center;
+      }
     }
 
-    .video-hero h1 em,
-    .social-section h2 {
-      background: linear-gradient(100deg, #b87910, #fff0a4, #e6ae25, #fff6be, #b87910);
-      background-size: 260% auto;
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      animation: goldText 5s linear infinite;
-      text-shadow: 0 0 28px rgba(240, 190, 54, 0.2);
-    }
+    @media (max-width: 850px) {
+      .pricing-grid,
+      .social-links {
+        grid-template-columns: 1fr;
+      }
 
-    .button,
-    .nav-book,
-    .social-icon {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(110deg, #a86f08, #ffd85d, #fff0a0, #d99b13, #a86f08);
-      background-size: 250% 100%;
-      animation: goldButton 4.5s linear infinite;
-      box-shadow:
-        0 0 22px rgba(230, 177, 38, 0.45),
-        0 12px 28px rgba(5, 27, 77, 0.3);
-    }
-
-    .hero-phone {
-      box-shadow:
-        0 0 0 1px rgba(255, 219, 100, 0.5),
-        0 0 24px rgba(24, 91, 196, 0.48),
-        0 14px 30px rgba(0, 20, 72, 0.42);
-    }
-
-    .social-section {
-      background:
-        radial-gradient(circle at 15% 10%, rgba(255, 215, 89, 0.28), transparent 27%),
-        radial-gradient(circle at 85% 75%, rgba(40, 119, 255, 0.4), transparent 35%),
-        linear-gradient(125deg, #020b28, #072b72, #1259b5, #061746);
-      background-size: 170% 170%;
-      animation: blueShine 12s ease infinite;
-    }
-
-    @keyframes blueShine {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes goldText {
-      to { background-position: 260% center; }
-    }
-
-    @keyframes goldButton {
-      to { background-position: 250% center; }
-    }
-
-    @media (max-width: 800px) {
       .site-logo {
         width: 48px;
         height: 48px;
@@ -307,20 +416,11 @@
         display: none;
       }
 
-      .social-links {
-        grid-template-columns: 1fr;
-      }
-
-      .social-link {
-        min-height: 80px;
-      }
-
       .floating-whatsapp {
         right: 14px;
         bottom: 14px;
         padding: 13px 16px;
       }
-
     }
 
     @media (max-width: 480px) {
@@ -335,6 +435,20 @@
         margin-right: 0;
       }
 
+      .pricing-section {
+        padding: 55px 5%;
+      }
+
+      .pricing-card {
+        padding: 24px 15px;
+      }
+
+      .pricing-card th,
+      .pricing-card td {
+        padding: 10px 3px;
+        font-size: 0.88rem;
+      }
+
       .floating-whatsapp span:last-child {
         display: none;
       }
@@ -345,7 +459,6 @@
         justify-content: center;
         padding: 0;
       }
-
     }
   </style>
 </head>
@@ -368,6 +481,7 @@
     <div>
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
+      <a class="nav-prices" href="#prices">Prices</a>
       <a class="nav-book" href="#book">Book now</a>
     </div>
   </nav>
@@ -410,6 +524,9 @@
             Book your appointment →
           </a>
 
+          <a class="button" href="#prices">
+            View prices →
+          </a>
         </div>
       </div>
     </section>
@@ -429,6 +546,8 @@
 
       <div class="service-chips">
         <span>Knotless braids</span>
+        <span>Senegalese twists</span>
+        <span>Spring twists</span>
         <span>Boho braids</span>
         <span>Midback length</span>
         <span>Waist length</span>
@@ -445,8 +564,7 @@
         </div>
 
         <p>
-          Browse recent looks and find inspiration for your next
-          appointment.
+          Browse recent looks and find inspiration for your next appointment.
         </p>
       </div>
 
@@ -525,8 +643,230 @@
       </div>
     </section>
 
+    <section class="pricing-section knotless" id="prices">
+      <div class="pricing-heading">
+        <p>PRICE GUIDE</p>
+        <h2>Knotless Braids</h2>
+
+        <p class="pricing-description">
+          Choose your preferred size, length, and finish.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <h3>Jumbo</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$150</td><td>—</td></tr>
+              <tr><td>Waist Length</td><td>$150</td><td>—</td></tr>
+              <tr><td>Top Butt</td><td>$180</td><td>—</td></tr>
+              <tr><td>Under Butt</td><td>$200</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Large</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$160</td><td>—</td></tr>
+              <tr><td>Waist Length</td><td>$160</td><td>—</td></tr>
+              <tr><td>Top Butt</td><td>$180</td><td>—</td></tr>
+              <tr><td>Under Butt</td><td>$240</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Medium</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$170</td><td>$240</td></tr>
+              <tr><td>Waist Length</td><td>$170</td><td>$240</td></tr>
+              <tr><td>Top Butt</td><td>$200</td><td>$280</td></tr>
+              <tr><td>Mid Butt</td><td>$220</td><td>$320</td></tr>
+              <tr><td>Under Butt</td><td>$260</td><td>$340</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Small-Medium</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$200</td><td>$260</td></tr>
+              <tr><td>Waist Length</td><td>$240</td><td>$300</td></tr>
+              <tr><td>Top Butt</td><td>$280</td><td>$340</td></tr>
+              <tr><td>Under Butt</td><td>$320</td><td>$380</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Small</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$240</td><td>$330</td></tr>
+              <tr><td>Waist Length</td><td>$280</td><td>$340</td></tr>
+              <tr><td>Top Butt</td><td>$320</td><td>$360</td></tr>
+              <tr><td>Mid Butt</td><td>$340</td><td>$380</td></tr>
+              <tr><td>Under Butt</td><td>$360</td><td>$400</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing-section" id="senegalese-prices">
+      <div class="pricing-heading">
+        <p>PRICE GUIDE</p>
+        <h2>Senegalese Twists</h2>
+
+        <p class="pricing-description">
+          Boho pricing is shown where available.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <h3>Medium</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$170</td><td>—</td></tr>
+              <tr><td>Waist Length</td><td>$170</td><td>—</td></tr>
+              <tr><td>Top Butt</td><td>$200</td><td>$340</td></tr>
+              <tr><td>Under Butt</td><td>$240</td><td>$340</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Small-Medium</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$200</td><td>$260</td></tr>
+              <tr><td>Waist Length</td><td>$240</td><td>$300</td></tr>
+              <tr><td>Top Butt</td><td>$280</td><td>$380</td></tr>
+              <tr><td>Mid Butt</td><td>$300</td><td>—</td></tr>
+              <tr><td>Under Butt</td><td>$320</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Small</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Length</th>
+                <th>Regular</th>
+                <th>Boho</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Midback</td><td>$240</td><td>—</td></tr>
+              <tr><td>Waist Length</td><td>$280</td><td>—</td></tr>
+              <tr><td>Top Butt</td><td>$320</td><td>—</td></tr>
+              <tr><td>Mid Butt</td><td>$340</td><td>—</td></tr>
+              <tr><td>Under Butt</td><td>$360</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Spring Twists</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr><td>Medium</td><td>$180</td></tr>
+              <tr><td>Small-Medium</td><td>$200</td></tr>
+              <tr><td>Small</td><td>$240</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+
+      <p class="pricing-note">
+        Friends’ and kids’ prices are also available when booking.
+      </p>
+    </section>
+
     <section class="social-section" id="social">
       <p class="eyebrow">CONNECT WITH ATHALIA</p>
+
       <h2>Follow our latest styles</h2>
 
       <p class="social-intro">
@@ -543,6 +883,7 @@
           rel="noopener noreferrer"
         >
           <span class="social-icon">WA</span>
+
           <span>
             <small>Send a message</small>
             <strong>WhatsApp</strong>
@@ -556,6 +897,7 @@
           rel="noopener noreferrer"
         >
           <span class="social-icon">IG</span>
+
           <span>
             <small>View our photos</small>
             <strong>Instagram</strong>
@@ -569,6 +911,7 @@
           rel="noopener noreferrer"
         >
           <span class="social-icon">TT</span>
+
           <span>
             <small>Watch our videos</small>
             <strong>TikTok</strong>
@@ -580,11 +923,14 @@
     <section class="booking" id="book">
       <div>
         <p class="eyebrow">READY FOR YOUR NEW LOOK?</p>
+
         <h2>Request an appointment</h2>
 
         <p>
-          Please check your email for your booking confirmation and appointment updates. You can also send a picture of your desired style through WhatsApp.
-          Athalia will contact you to confirm the final date and time.
+          Please check your email for your booking confirmation and
+          appointment updates. You can also send a picture of your desired
+          style through WhatsApp. Athalia will contact you to confirm the final
+          date and time.
         </p>
 
         <ol>
@@ -612,6 +958,7 @@
       <form id="booking-form">
         <label>
           Full name
+
           <input
             name="name"
             required
@@ -622,6 +969,7 @@
 
         <label>
           Phone number
+
           <input
             name="phone"
             required
@@ -633,6 +981,7 @@
 
         <label>
           Email
+
           <input
             name="email"
             required
@@ -644,8 +993,10 @@
 
         <label>
           Braid style
+
           <select name="braidStyle" required>
             <option value="">Select style</option>
+            <option>Knotless Braids</option>
             <option>Senegalese Twists</option>
             <option>Spring Twists</option>
           </select>
@@ -653,6 +1004,7 @@
 
         <label>
           Braid size
+
           <select name="braidSize" required>
             <option value="">Select size</option>
             <option>Jumbo</option>
@@ -665,6 +1017,7 @@
 
         <label>
           Length
+
           <select name="braidLength" required>
             <option value="">Select length</option>
             <option>Midback</option>
@@ -677,6 +1030,7 @@
 
         <label>
           Finish
+
           <select name="finish" required>
             <option>Regular</option>
             <option>Boho</option>
@@ -685,16 +1039,19 @@
 
         <label>
           Preferred date
+
           <input name="preferredDate" type="date" required>
         </label>
 
         <label>
           Preferred time
+
           <input name="preferredTime" type="time" required>
         </label>
 
         <label class="full">
           Notes
+
           <textarea
             name="notes"
             maxlength="1000"
